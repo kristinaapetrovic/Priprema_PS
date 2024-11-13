@@ -1,0 +1,42 @@
+REATE DATABASE proba5;
+CREATE TABLE profesor(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	ime VARCHAR(20),
+	prezime VARCHAR(20),
+	zvanje VARCHAR(25),
+	email VARCHAR(15)
+
+);
+
+CREATE TABLE predmet(
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	naziv VARCHAR(20),
+	kod VARCHAR(10),
+	esp INT
+
+);
+CREATE TABLE angazovanje(
+	profesor INT,
+	predmet INT,
+	PRIMARY KEY(profesor, predmet),
+	FOREIGN KEY (profesor) REFERENCES profesor(id),
+	FOREIGN KEY (predmet) REFERENCES predmet(id)
+
+	
+);
+INSERT INTO predmet (naziv, kod, esp) VALUES ('p1', 'kod1', 6);
+INSERT INTO predmet (naziv, kod, esp) VALUES ('p2', 'kod2', 5);
+INSERT INTO predmet (naziv, kod, esp) VALUES ('p3', 'kod3', 4);
+
+INSERT INTO profesor (ime, prezime, zvanje) VALUES ('ime1','prezime1','ASISTENT');
+INSERT INTO profesor (ime, prezime, zvanje) VALUES ('ime2','prezime2','ASISTENT');
+INSERT INTO profesor (ime, prezime, zvanje) VALUES ('ime3','prezime3','ASISTENT');
+
+
+
+
+INSERT INTO angazovanje (profesor, predmet) VALUES (1,3);
+INSERT INTO angazovanje (profesor, predmet) VALUES (1,2);
+INSERT INTO angazovanje (profesor, predmet) VALUES (2,3);
+INSERT INTO angazovanje (profesor, predmet) VALUES (2,1);
+INSERT INTO angazovanje (profesor, predmet) VALUES (2,2);
